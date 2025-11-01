@@ -55,7 +55,7 @@ function generatePlan() {
     return;
   }
 
-  // Fractional Knapsack
+  // Fractional Knapsack (Greedy Algorithm)
   let items = JSON.parse(JSON.stringify(subjects));
 
   switch (mode) {
@@ -69,7 +69,7 @@ function generatePlan() {
       items.sort((a, b) => b.ratio - a.ratio);
       break;
     case "difficulty":
-      items.sort((a, b) => a.diff - b.diff); // Easier topics first
+      items.sort((a, b) => a.diff - b.diff);
       break;
   }
 
@@ -124,7 +124,7 @@ function displayResult(mode, plan, totalImportance, totalTime) {
   document.getElementById("result").innerHTML = html;
 }
 
-// -------------------- 0/1 Knapsack (Backtracking) --------------------
+//0/1 Knapsack (Backtracking)
 function zeroOneKnapsack(items, capacity) {
   let bestValue = 0;
   let bestSet = [];
@@ -178,3 +178,4 @@ function displayZeroOneResult(result) {
   html += `</table>`;
   document.getElementById("result").innerHTML = html;
 }
+
